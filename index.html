@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo Digital · Rede Mais Vale | Único Contato</title>
+<meta name="description" content="Proposta comercial do Catálogo Digital para a Rede Mais Vale — Único Contato.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F3EE;
+    --card:#FFFFFF;
+    --border:#E8E4DD;
+    --green:#22C55E;
+    --green-dark:#15803D;
+    --green-hover:#1EB054;
+    --wa:#25D366;
+    --navy:#0D2240;
+    --ink:#0D0D0D;
+    --black:#050911;
+    --on-navy:#FFFFFF;
+    --muted:#55554D;
+    --soft:#8A8A80;
+    --radius:16px;
+    --shadow:0 1px 2px rgba(13,34,64,.04), 0 10px 30px rgba(13,34,64,.06);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{
+    font-family:'Manrope',sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    font-size:16.5px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  .doc{max-width:1060px;margin:0 auto;padding:40px 28px 90px}
+  section{margin-top:76px}
+  h1,h2,h3{font-family:'Sora',sans-serif;color:var(--black)}
+  h2{font-weight:700;font-size:clamp(26px,3.4vw,36px);line-height:1.22;margin:14px 0 12px;letter-spacing:-.01em}
+  h3{font-weight:700;font-size:18px;line-height:1.35;margin-bottom:8px}
+  p{margin-bottom:12px}
+  p:last-child{margin-bottom:0}
+  .lead{color:var(--muted);max-width:74ch;font-size:17px}
+  .kicker{
+    display:inline-flex;align-items:center;gap:10px;
+    font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--green-dark);
+  }
+  .kicker::before{content:"";width:26px;height:2px;background:var(--green);border-radius:2px}
+  .muted{color:var(--muted)}
+  .small{font-size:13.5px;line-height:1.6}
+  .tiny{font-size:12px;line-height:1.55;color:var(--soft)}
+  strong{font-weight:700}
+
+  /* ---------- Superfícies ---------- */
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:26px;
+    box-shadow:var(--shadow);
+  }
+  .grid{display:grid;gap:18px}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .grid-4{grid-template-columns:repeat(4,1fr)}
+  .navy{
+    background:var(--navy);
+    color:var(--on-navy);
+    border-radius:18px;
+    padding:38px;
+    box-shadow:var(--shadow);
+  }
+  .navy h3,.navy h2{color:var(--on-navy)}
+  .callout{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-left:4px solid var(--green);
+    border-radius:12px;
+    padding:16px 20px;
+  }
+  .callout-navy{border-left-color:var(--navy)}
+
+  /* ---------- Badges ---------- */
+  .badge{
+    display:inline-flex;align-items:center;gap:7px;
+    font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    padding:7px 13px;border-radius:999px;white-space:nowrap;
+  }
+  .badge-green{background:rgba(34,197,94,.12);color:var(--green-dark);border:1px solid rgba(34,197,94,.4)}
+  .badge-navy{background:rgba(13,34,64,.07);color:var(--navy);border:1px solid rgba(13,34,64,.22)}
+  .badge-line{background:transparent;color:var(--green-dark);border:1px solid rgba(34,197,94,.45)}
+
+  /* ---------- Logo ---------- */
+  .logo{height:58px;width:auto;color:var(--navy);--cut:#FFFFFF;display:block}
+  .logo-light{color:var(--on-navy);--cut:var(--navy)}
+  .logo-cut-bg{--cut:var(--bg)}
+
+  /* ---------- Botões de teste ---------- */
+  .btn-test{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--wa);color:#fff;
+    font-weight:700;font-size:13.5px;letter-spacing:.04em;
+    padding:12px 20px;border-radius:999px;text-decoration:none;
+    border:1px solid rgba(255,255,255,.15);
+    transition:background .2s ease, transform .2s ease;
+    box-shadow:0 2px 6px rgba(37,211,102,.18);
+  }
+  .btn-test:hover{background:#1EBE5B}
+  .btn-test svg{width:16px;height:16px;flex:0 0 16px}
+  .btn-test-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px}
+  .btn-test-row .tiny{margin:0}
+
+  /* ---------- Capa ---------- */
+  .cover{
+    min-height:92vh;
+    display:flex;flex-direction:column;justify-content:space-between;
+    padding:14px 0 0;
+  }
+  .cover-top{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .cover-doc{
+    font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+    border:1px solid var(--border);background:var(--card);border-radius:999px;padding:9px 16px;
+  }
+  .cover-body{padding:56px 0 40px}
+  .cover-kicker{
+    font-weight:700;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--green-dark);margin-bottom:22px;
+  }
+  .cover h1{
+    font-weight:800;font-size:clamp(34px,6vw,64px);line-height:1.06;letter-spacing:-.02em;margin-bottom:18px;
+  }
+  .cover-sub{
+    font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(17px,2.4vw,23px);color:var(--navy);margin-bottom:34px;
+  }
+  .cover-rule{width:86px;height:4px;background:var(--green);border-radius:4px;margin-bottom:34px}
+  .cover-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .cover-meta .card{padding:20px 22px}
+  .meta-label{font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+  .meta-value{font-family:'Sora',sans-serif;font-weight:700;font-size:17px;color:var(--black);line-height:1.35}
+  .cover-foot{
+    border-top:1px solid var(--border);
+    padding:18px 0 26px;
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    font-size:13px;color:var(--soft);
+  }
+
+  /* ---------- Listas ---------- */
+  ul.clean{list-style:none}
+  ul.clean li{position:relative;padding-left:26px;margin-bottom:9px}
+  ul.clean li::before{
+    content:"";position:absolute;left:0;top:.62em;width:14px;height:8px;
+    border-left:2.4px solid var(--green-dark);border-bottom:2.4px solid var(--green-dark);
+    transform:rotate(-45deg);
+  }
+  ul.dots li{position:relative;padding-left:20px;margin-bottom:8px;list-style:none}
+  ul.dots li::before{content:"";position:absolute;left:2px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--green)}
+
+  /* ---------- Fluxo ---------- */
+  .flow{display:flex;flex-direction:column;align-items:stretch;gap:0;max-width:760px}
+  .step{
+    display:flex;gap:16px;align-items:flex-start;
+    background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 20px;
+    box-shadow:var(--shadow);
+  }
+  .step-num{
+    flex:0 0 34px;height:34px;border-radius:50%;
+    background:var(--navy);color:#fff;
+    font-family:'Sora',sans-serif;font-weight:700;font-size:14px;
+    display:grid;place-items:center;
+  }
+  .step-title{font-family:'Sora',sans-serif;font-weight:700;font-size:15.5px;color:var(--black)}
+  .step-desc{font-size:14px;color:var(--muted)}
+  .step-arrow{display:grid;place-items:center;padding:7px 0;color:var(--green-dark)}
+  .step-arrow svg{width:20px;height:20px}
+
+  /* ---------- Tabelas ---------- */
+  .table-scroll{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);background:var(--card);box-shadow:var(--shadow)}
+  table{width:100%;border-collapse:collapse;min-width:560px;font-size:14.5px}
+  thead th{
+    background:var(--navy);color:#fff;
+    font-weight:700;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+    text-align:left;padding:15px 16px;
+  }
+  tbody td{padding:18px 16px;border-top:1px solid var(--border);vertical-align:top;color:var(--muted)}
+  tbody td:first-child{color:var(--black)}
+  .num{text-align:right;font-variant-numeric:tabular-nums}
+  th.num{text-align:right}
+  .sol-name{font-family:'Sora',sans-serif;font-weight:700;font-size:16px;color:var(--black);display:block;margin-bottom:8px}
+  .price{font-family:'Sora',sans-serif;font-weight:700;font-size:15.5px;color:var(--black);white-space:nowrap}
+  .price small{display:block;font-family:'Manrope',sans-serif;font-weight:600;font-size:11.5px;color:var(--soft);letter-spacing:.04em}
+  tr.rec td{background:#F2FBF5}
+  tr.rec td:first-child{box-shadow:inset 4px 0 0 var(--green)}
+
+  /* ---------- Mockup de conversa ---------- */
+  .chat{
+    max-width:560px;margin:0 auto;background:var(--card);
+    border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);
+  }
+  .chat-head{
+    background:var(--navy);color:#fff;padding:14px 20px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .chat-avatar{
+    width:36px;height:36px;border-radius:50%;flex:0 0 36px;
+    background:rgba(37,211,102,.16);border:1px solid rgba(37,211,102,.5);
+    display:grid;place-items:center;color:var(--wa);
+  }
+  .chat-name{font-family:'Sora',sans-serif;font-weight:700;font-size:14.5px}
+  .chat-status{font-size:11.5px;color:rgba(255,255,255,.65)}
+  .chat-body{padding:20px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
+  .msg{max-width:84%;padding:11px 15px;border-radius:14px;font-size:14.5px;line-height:1.55}
+  .msg .t{display:block;font-size:10.5px;font-weight:600;color:var(--soft);margin-top:5px;text-align:right;letter-spacing:.03em}
+  .msg-client{align-self:flex-end;background:#E7F6EC;border:1px solid rgba(34,197,94,.28);border-bottom-right-radius:4px}
+  .msg-ia{align-self:flex-start;background:#fff;border:1px solid var(--border);border-bottom-left-radius:4px}
+  .msg-ia .who{display:block;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--green-dark);margin-bottom:3px}
+  .msg-human{align-self:flex-start;background:#fff;border:1px solid var(--border);border-left:3px solid var(--green);border-bottom-left-radius:4px}
+  .msg-human .who{display:block;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:3px}
+  .msg-sys{
+    align-self:center;background:rgba(13,34,64,.07);color:var(--navy);
+    font-weight:600;font-size:12px;padding:6px 14px;border-radius:999px;text-align:center;
+  }
+  .msg-buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+  .msg-btn{
+    display:inline-block;padding:6px 12px;border-radius:999px;font-size:12.5px;font-weight:600;
+    background:rgba(34,197,94,.12);color:var(--green-dark);border:1px solid rgba(34,197,94,.4);
+  }
+
+  /* ---------- Pilares / ícones ---------- */
+  .icon{
+    width:44px;height:44px;border-radius:12px;flex:0 0 44px;
+    background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);
+    display:grid;place-items:center;color:var(--green-dark);margin-bottom:14px;
+  }
+  .icon svg{width:22px;height:22px}
+  .icon-navy{background:rgba(13,34,64,.06);border-color:rgba(13,34,64,.2);color:var(--navy)}
+  .pillar h3{font-size:16.5px}
+  .pillar ul{margin-top:6px}
+
+  /* ---------- Preços destacados ---------- */
+  .price-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px}
+  .price-box{
+    flex:1 1 150px;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:16px 18px;
+  }
+  .price-box .meta-label{margin-bottom:4px}
+  .price-box .val{font-family:'Sora',sans-serif;font-weight:800;font-size:22px;color:var(--navy)}
+  .price-box .val small{font-family:'Manrope',sans-serif;font-weight:600;font-size:13px;color:var(--muted)}
+
+  /* ---------- Plano ---------- */
+  .plan{position:relative}
+  .plan .plan-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+  .plan .plan-name{font-family:'Sora',sans-serif;font-weight:800;font-size:20px;color:var(--black)}
+  .plan-hl{border:2px solid var(--green);box-shadow:0 10px 30px rgba(34,197,94,.12)}
+
+  /* ---------- Implantação passo a passo ---------- */
+  .implant-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .implant-step{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+    padding:22px;box-shadow:var(--shadow);position:relative;
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .implant-step-head{display:flex;align-items:flex-start;gap:14px}
+  .implant-step-num{
+    flex:0 0 36px;height:36px;border-radius:50%;
+    background:var(--navy);color:#fff;
+    font-family:'Sora',sans-serif;font-weight:800;font-size:15px;
+    display:grid;place-items:center;
+  }
+  .implant-step-title{font-family:'Sora',sans-serif;font-weight:700;font-size:16px;color:var(--black);margin-bottom:2px}
+  .implant-step-desc{font-size:14px;color:var(--muted);line-height:1.6}
+  .implant-panel{
+    display:inline-flex;align-items:center;gap:6px;
+    margin-top:6px;
+    font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--navy);background:rgba(13,34,64,.07);
+    border:1px solid rgba(13,34,64,.22);
+    padding:5px 11px;border-radius:999px;
+    align-self:flex-start;
+  }
+  .implant-panel::before{
+    content:"";width:6px;height:6px;border-radius:50%;background:var(--navy);
+  }
+
+  /* ---------- Próximos passos ---------- */
+  .steps5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;counter-reset:passo}
+  .pstep{position:relative;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px 18px;box-shadow:var(--shadow)}
+  .pstep .n{
+    font-family:'Sora',sans-serif;font-weight:800;font-size:13px;color:var(--green-dark);
+    border:1.6px solid rgba(34,197,94,.5);border-radius:999px;padding:4px 11px;display:inline-block;margin-bottom:12px;
+  }
+  .pstep h3{font-size:15px;margin-bottom:6px}
+  .pstep p{font-size:13.5px;color:var(--muted)}
+
+  /* ---------- Encerramento ---------- */
+  .closing{text-align:center;padding:56px 40px}
+  .closing .logo{margin:0 auto 30px;height:52px}
+  .closing .phrase{
+    font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(20px,3vw,28px);line-height:1.35;margin-bottom:20px;
+  }
+  .closing .quote{color:rgba(255,255,255,.82);max-width:62ch;margin:0 auto 34px;font-size:16px}
+  .closing .sig{border-top:1px solid rgba(255,255,255,.22);padding-top:24px;display:inline-block}
+  .closing .sig .brand{font-family:'Sora',sans-serif;font-weight:800;font-size:19px;letter-spacing:.02em}
+  .closing .sig .line{font-size:13px;color:rgba(255,255,255,.7);margin-top:4px}
+
+  footer.doc-foot{
+    margin-top:64px;border-top:1px solid var(--border);padding-top:22px;
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    font-size:12.5px;color:var(--soft);
+  }
+
+  /* ---------- Responsivo ---------- */
+  @media (max-width:900px){
+    .grid-4{grid-template-columns:repeat(2,1fr)}
+    .grid-3{grid-template-columns:repeat(2,1fr)}
+    .implant-grid{grid-template-columns:1fr}
+    .steps5{grid-template-columns:repeat(2,1fr)}
+    .cover-meta{grid-template-columns:1fr}
+  }
+  @media (max-width:620px){
+    .doc{padding:28px 18px 70px}
+    .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+    .implant-grid{grid-template-columns:1fr}
+    .steps5{grid-template-columns:1fr}
+    .navy{padding:28px 22px}
+    section{margin-top:56px}
+  }
+
+  /* ---------- Impressão / PDF ---------- */
+  @page{size:A4;margin:12mm}
+  @media print{
+    body{background:#FFFFFF;font-size:12.5px}
+    .doc{max-width:none;padding:0}
+    .cover{min-height:auto;break-after:page;padding:0}
+    section{margin-top:40px}
+    .print-break{break-before:page}
+    .card,.step,.msg,.pstep,.implant-step,.price-box,.callout,.chat{box-shadow:none;break-inside:avoid}
+    .navy{break-inside:avoid}
+    h2{break-after:avoid}
+    table{min-width:0;font-size:10.5px}
+    thead th{padding:9px 10px;font-size:9.5px}
+    tbody td{padding:10px}
+    section{margin-top:34px}
+    .lead{font-size:12.5px}
+    .btn-test{box-shadow:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ SÍMBOLO DO LOGO ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="uc-logo" viewBox="0 0 360 128">
+    <g stroke="currentColor" fill="none" stroke-width="9">
+      <circle cx="54" cy="64" r="40"/>
+      <path d="M79.90 66.27 A26 26 0 0 1 56.27 89.90"/>
+      <path d="M51.73 89.90 A26 26 0 0 1 28.10 66.27"/>
+      <path d="M28.10 61.73 A26 26 0 0 1 51.73 38.10"/>
+      <path d="M56.27 38.10 A26 26 0 0 1 79.90 61.73"/>
+    </g>
+    <circle cx="54" cy="64" r="14" fill="currentColor"/>
+    <rect x="51.6" y="50" width="4.8" height="28" fill="var(--cut,#FFFFFF)"/>
+    <rect x="40" y="61.6" width="28" height="4.8" fill="var(--cut,#FFFFFF)"/>
+    <text x="336" y="40" text-anchor="end" font-family="Sora, sans-serif" font-weight="700" font-size="21" letter-spacing="6" fill="currentColor">GRUPO</text>
+    <text x="112" y="92" font-family="Sora, sans-serif" font-weight="800" font-size="62" letter-spacing="1" fill="currentColor">ÚNICO</text>
+    <text x="112" y="121" font-family="Sora, sans-serif" font-weight="700" font-size="23" letter-spacing="5" fill="currentColor">CONTATO</text>
+  </symbol>
+</svg>
+
+<div class="doc">
+
+  <!-- ==================== 01 · CAPA ==================== -->
+  <header class="cover">
+    <div class="cover-top">
+      <svg class="logo logo-cut-bg" role="img" aria-label="Grupo Único Contato"><use href="#uc-logo"/></svg>
+      <span class="cover-doc">Documento de projeto · Proposta comercial</span>
+    </div>
+
+    <div class="cover-body">
+      <p class="cover-kicker">Proposta comercial personalizada · Canal digital de vendas</p>
+      <h1>CATÁLOGO DIGITAL</h1>
+      <div class="cover-rule"></div>
+      <p class="cover-sub">Vendas pelo WhatsApp com autonomia do cliente e preservação da venda consultiva</p>
+
+      <div class="cover-meta">
+        <div class="card">
+          <div class="meta-label">Cliente</div>
+          <div class="meta-value">Rede Mais Vale</div>
+        </div>
+        <div class="card">
+          <div class="meta-label">Contato</div>
+          <div class="meta-value">Miguel Ortiz Hellmann</div>
+        </div>
+        <div class="card">
+          <div class="meta-label">Natureza do documento</div>
+          <div class="meta-value">Projeto executivo e proposta comercial</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-foot">
+      <span>Preparado para Miguel Ortiz Hellmann · operação Rede Mais Vale</span>
+      <span>30 lojas · ERP Alpha 7 · condição comercial atualizada</span>
+    </div>
+  </header>
+
+  <!-- ==================== 02 · CONTEXTO ==================== -->
+  <section id="contexto">
+    <span class="kicker">02 · Contexto da operação</span>
+    <h2>O momento atual da Rede Mais Vale</h2>
+    <p class="lead">
+      A Rede Mais Vale possui 30 lojas, utiliza o ERP Alpha 7 e está em processo de migração de marca para Sabra.
+      Em reunião, Miguel relatou a necessidade de estruturar um canal digital de vendas que amplie a autonomia do
+      consumidor sem perder a venda consultiva — especialmente em medicamentos, onde o atendimento humano é parte
+      essencial da operação.
+    </p>
+
+    <div class="grid grid-2" style="margin-top:26px">
+      <div class="card">
+        <h3>Contexto relatado na reunião</h3>
+        <ul class="dots small muted">
+          <li>30 lojas, com preços diferentes entre unidades (especialmente medicamentos tarjados).</li>
+          <li>Perfis de cliente de cidades do interior, onde o relacionamento humano tem peso decisivo.</li>
+          <li>Banco de dados com 200 mil clientes sendo etiquetado por unidade para a implantação.</li>
+          <li>Transição de marca: unidades com identidades Mais Vale e Sabra coexistindo.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Preocupações levantadas</h3>
+        <ul class="dots small muted">
+          <li>Preservação da venda consultiva em medicamentos (antialérgicos, receitas, dúvidas técnicas).</li>
+          <li>Clientes idosos ou com dificuldade para digitar nomes técnicos.</li>
+          <li>Risco de perder oportunidade de agregar produtos à venda durante o atendimento.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:18px">
+      <p style="font-weight:600;font-size:15.5px;color:var(--black)">
+        O objetivo é dar autonomia ao cliente que já sabe o que quer, preservar o atendimento humano nos casos que
+        exigem orientação técnica e permitir que o atendente agregue produtos na venda antes da finalização.
+      </p>
+    </div>
+    <p class="tiny" style="margin-top:10px">
+      Os volumes e a estrutura descritos foram relatados pela operação na reunião e não constituem medições
+      realizadas pela Único Contato.
+    </p>
+  </section>
+
+  <!-- ==================== 03 · OBJETIVO ==================== -->
+  <section id="objetivo">
+    <span class="kicker">03 · Objetivo do projeto</span>
+    <h2>O que a operação precisa conquistar</h2>
+    <p class="lead">Estruturar um canal digital de vendas capaz de:</p>
+
+    <div class="grid grid-2" style="margin-top:24px">
+      <div class="card">
+        <ul class="clean small muted" style="font-size:15px">
+          <li>Oferecer autonomia ao cliente que já sabe o que quer comprar.</li>
+          <li>Reduzir o trabalho manual de busca, fotos e preços.</li>
+          <li>Organizar o carrinho antes da finalização pelo atendente.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <ul class="clean small muted" style="font-size:15px">
+          <li>Preservar a venda consultiva em medicamentos.</li>
+          <li>Manter o humano disponível a qualquer momento do atendimento.</li>
+          <li>Respeitar preços e estoques específicos de cada loja.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="navy" style="margin-top:22px">
+      <p style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(19px,2.6vw,25px);line-height:1.4">
+        O cliente escolhe o caminho: navega sozinho pelo catálogo ou fala com o atendente desde o primeiro contato.
+        A Rede Mais Vale define as regras — a tecnologia só organiza.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== 04 · A SOLUÇÃO ==================== -->
+  <section id="solucao">
+    <span class="kicker">04 · A solução</span>
+    <h2>Catálogo Digital <span class="badge badge-green" style="vertical-align:middle;margin-left:8px">Recomendação</span></h2>
+    <p class="lead">
+      Um catálogo digital próprio da Único — diferente do catálogo nativo do WhatsApp — construído com a identidade
+      visual da Rede Mais Vale (e de cada marca, quando aplicável) e integrado ao atendimento pelo WhatsApp.
+    </p>
+
+    <div class="btn-test-row">
+      <a class="btn-test" href="https://unicommerce-eight.vercel.app/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l8-4 8 4v10l-8 4-8-4V7z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg>
+        Acessar o Catálogo
+      </a>
+      <a class="btn-test" href="https://wa.me/553196039524" target="_blank" rel="noopener" style="background:var(--navy)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        Testar pelo WhatsApp
+      </a>
+      <a class="btn-test" href="https://wa.me/553196039524" target="_blank" rel="noopener" style="background:linear-gradient(135deg, var(--navy), var(--green-dark))">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.09 6.26L20 9l-5 4.87L16.18 20 12 16.77 7.82 20 9 13.87 4 9l5.91-.74L12 2z"/></svg>
+        Ver spoiler da próxima novidade
+      </a>
+      <span class="tiny">O "spoiler" é uma prévia de um produto que a Único Contato ainda está desenvolvendo. O contato deve ser feito via WhatsApp para experimentar.</span>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:26px">
+      <div class="card pillar">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
+        <h3>Identidade por loja</h3>
+        <ul class="dots small muted">
+          <li>Logotipo, cores, banners e categorias por unidade.</li>
+          <li>Suporte a múltiplas marcas na mesma rede (Mais Vale e Sabra).</li>
+          <li>Vitrine totalmente personalizada pela operação.</li>
+        </ul>
+      </div>
+      <div class="card pillar">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></div>
+        <h3>Busca inteligente com IA</h3>
+        <ul class="dots small muted">
+          <li>Busca por nome, termos relacionados e variações.</li>
+          <li>Leitura de receitas por imagem quando o cliente envia a foto.</li>
+          <li>Transferência automática para humano quando a IA não compreende.</li>
+        </ul>
+      </div>
+      <div class="card pillar">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></div>
+        <h3>Botão inicial duplo</h3>
+        <ul class="dots small muted">
+          <li>"Continuar por aqui" ou "Falar com atendente" logo na primeira mensagem.</li>
+          <li>Cliente decide o caminho desde o início do contato.</li>
+          <li>Humano pode assumir a conversa a qualquer momento (via supervisor).</li>
+        </ul>
+      </div>
+      <div class="card pillar">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2 3h3l2.6 12.4a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 2-1.6L22 7H6"/></svg></div>
+        <h3>Carrinho e conversão</h3>
+        <ul class="dots small muted">
+          <li>Carrinho lateral no painel do atendente.</li>
+          <li>Conversão direta em pedido no Alpha 7, sem redigitação.</li>
+          <li>Histórico de pedidos do cliente disponíveis para sugestões.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin:34px 0 16px">Jornada do cliente</h3>
+    <div class="flow">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div><div class="step-title">Cliente chama no WhatsApp</div>
+        <div class="step-desc">A primeira mensagem oferece duas opções claras: continuar pelo catálogo ou falar com atendente.</div></div>
+      </div>
+      <div class="step-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16m0 0l-6-6m6 6l6-6"/></svg></div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div><div class="step-title">Identificação da unidade</div>
+        <div class="step-desc">Clientes etiquetados no banco de dados vão direto para a loja correta. Novos números selecionam a unidade.</div></div>
+      </div>
+      <div class="step-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16m0 0l-6-6m6 6l6-6"/></svg></div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div><div class="step-title">Cliente escolhe o caminho</div>
+        <div class="step-desc">Pode navegar sozinho, enviar foto de receita ou pedir atendimento humano a qualquer momento.</div></div>
+      </div>
+      <div class="step-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16m0 0l-6-6m6 6l6-6"/></svg></div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div><div class="step-title">Montagem do carrinho</div>
+        <div class="step-desc">Cliente navega e adiciona produtos; atendente vê em tempo real e pode sugerir complementos.</div></div>
+      </div>
+      <div class="step-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16m0 0l-6-6m6 6l6-6"/></svg></div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div><div class="step-title">Finalização consultiva</div>
+        <div class="step-desc">Atendente confere, sugere produtos complementares e converte em pedido no Alpha 7.</div></div>
+      </div>
+    </div>
+
+    <div class="chat" style="margin-top:30px">
+      <div class="chat-head">
+        <div class="chat-avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <div>
+          <div class="chat-name">Rede Mais Vale</div>
+          <div class="chat-status">Atendimento via WhatsApp · exemplo ilustrativo</div>
+        </div>
+      </div>
+      <div class="chat-body">
+        <div class="msg msg-ia"><span class="who">IA · primeiro contato</span>Olá! Como posso te ajudar hoje?<div class="msg-buttons"><span class="msg-btn">Continuar por aqui</span><span class="msg-btn">Falar com atendente</span></div><span class="t">14:02</span></div>
+        <div class="msg msg-client">Preciso de um antialérgico, mas não sei qual.<span class="t">14:02</span></div>
+        <div class="msg msg-ia"><span class="who">IA · Catálogo Digital</span>Entendi. Para indicar o antialérgico certo, é melhor falar com nosso atendente. Vou transferir você.<span class="t">14:02</span></div>
+        <div class="msg-sys">Transferido para atendente humano</div>
+        <div class="msg msg-human"><span class="who">Atendente humano</span>Boa tarde! Aqui é da Mais Vale Agronômica. Me conta: é coceira na pele, nos olhos, espirros? Posso te ajudar a escolher.<span class="t">14:03</span></div>
+      </div>
+    </div>
+    <p class="tiny" style="text-align:center;margin-top:10px">
+      Exemplo ilustrativo de fluxo a configurar na implantação. As mensagens e regras são definidas em conjunto com a operação.
+    </p>
+  </section>
+
+  <!-- ==================== 05 · INTEGRAÇÃO ERP ==================== -->
+  <section id="integracao" class="print-break">
+    <span class="kicker">05 · Integração com o ERP</span>
+    <h2>Integração com o Alpha 7</h2>
+    <p class="lead">
+      A integração com o Alpha 7 permite que o catálogo trabalhe com preços, estoques e pedidos específicos de cada
+      loja, respeitando a realidade de cada unidade da rede.
+    </p>
+
+    <div class="grid grid-2" style="margin-top:26px">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg></div>
+        <h3 style="font-size:16px">Feed por unidade</h3>
+        <p class="small muted">Cada loja possui seu próprio feed de produtos. Preços diferentes de medicamentos entre unidades são respeitados automaticamente.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3 style="font-size:16px">Clientes etiquetados</h3>
+        <p class="small muted">Os 200 mil clientes já etiquetados por unidade no banco de dados vão direto para a loja correta, sem precisar selecionar.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3 style="font-size:16px">Conversão direta no Alpha 7</h3>
+        <p class="small muted">Ao clicar em "Converter pedido", o orçamento é enviado diretamente para o PDV, sem redigitação.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3 style="font-size:16px">Novos clientes</h3>
+        <p class="small muted">Números ainda não etiquetados selecionam a unidade no primeiro contato, antes de ver preços e estoque.</p>
+      </div>
+    </div>
+
+    <div class="callout callout-navy" style="margin-top:20px">
+      <p class="small muted">
+        <strong style="color:var(--black)">Banco de imagens da Único:</strong> o catálogo já possui mais de
+        <strong style="color:var(--black)">150 mil SKUs com imagens</strong> disponíveis para uso imediato. A Rede Mais
+        Vale não precisa se preocupar em cadastrar imagens para a maioria dos produtos.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== 06 · OPERAÇÃO DA EQUIPE E GESTÃO ==================== -->
+  <section id="operacao" class="print-break">
+    <span class="kicker">06 · Operação da equipe e gestão</span>
+    <h2>Do carrinho do cliente ao pedido no Alpha 7</h2>
+    <p class="lead">
+      A solução organiza o trabalho dos atendentes e preserva a venda consultiva, especialmente em medicamentos.
+    </p>
+
+    <h3 style="margin:26px 0 16px">Operação dos atendentes</h3>
+    <div class="grid grid-2">
+      <div class="card">
+        <ul class="dots small muted">
+          <li>Carrinho lateral mostra em tempo real o que o cliente está adicionando.</li>
+          <li>Histórico de compras anteriores do cliente disponível para sugerir complementos.</li>
+          <li>Conferência, inclusão ou alteração de produtos antes da conversão.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <ul class="dots small muted">
+          <li>Supervisor pode assumir qualquer atendimento a qualquer momento.</li>
+          <li>Transferência automática para humano em receitas, dúvidas técnicas e áudios.</li>
+          <li>Conversão direta em pedido no PDV, sem redigitação.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:18px">
+      <h3 style="font-size:16px">Recursos nativos do sistema</h3>
+      <div class="grid grid-2" style="margin-top:10px">
+        <ul class="dots small muted">
+          <li><strong>Agrupamento de mensagens:</strong> evita envio de múltiplas mensagens quando o atendente digita rapidamente (tempo configurável).</li>
+          <li><strong>Correção gramatical com IA:</strong> disponível sob comando do atendente, sem correção automática involuntária.</li>
+        </ul>
+        <ul class="dots small muted">
+          <li>Leitura de áudios enviados pelo cliente, com transferência para humano quando não compreendido.</li>
+          <li>Leitura de fotos de receitas para buscar os medicamentos correspondentes.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin:34px 0 16px">Painel administrativo</h3>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2 3h3l2.6 12.4a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 2-1.6L22 7H6"/></svg></div>
+        <h3 style="font-size:16px">Carrinhos</h3>
+        <p class="small muted">Acompanhamento de carrinhos abertos e finalizados em tempo real.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-8M21 20H3"/></svg></div>
+        <h3 style="font-size:16px">Pedidos e evolução</h3>
+        <p class="small muted">Quantidade, valores e evolução diária por loja.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9-6-18-3 9H2"/></svg></div>
+        <h3 style="font-size:16px">Jornada e funil</h3>
+        <p class="small muted">Indicadores de uso por unidade e conversão de carrinhos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 07 · PLANO E CONDIÇÃO COMERCIAL ==================== -->
+  <section id="plano" class="print-break">
+    <span class="kicker">07 · Plano e condição comercial</span>
+    <h2>Condição comercial para a Rede Mais Vale</h2>
+    <p class="lead">
+      Condição preparada para a Rede Mais Vale, considerando o modelo de expansão gradual a partir de uma primeira
+      unidade implantada.
+    </p>
+
+    <div class="card plan plan-hl" style="margin-top:22px">
+      <div class="plan-head">
+        <span class="plan-name">Catálogo Digital</span>
+        <span class="badge badge-green">Condição comercial</span>
+      </div>
+      <div class="price-row">
+        <div class="price-box">
+          <div class="meta-label">Implantação · 1ª unidade</div>
+          <div class="val">R$ 2.100,00<small> · pagamento único</small></div>
+        </div>
+        <div class="price-box">
+          <div class="meta-label">Cada nova unidade</div>
+          <div class="val">R$ 500,00<small> · pagamento único</small></div>
+        </div>
+        <div class="price-box">
+          <div class="meta-label">Mensalidade</div>
+          <div class="val">R$ 1.887,00<small>/mês</small></div>
+        </div>
+        <div class="price-box">
+          <div class="meta-label">Franquia</div>
+          <div class="val">1.100<small> pedidos/mês</small></div>
+        </div>
+        <div class="price-box">
+          <div class="meta-label">Pedido excedente</div>
+          <div class="val">R$ 0,49<small>/pedido</small></div>
+        </div>
+      </div>
+      <p class="tiny" style="margin-top:12px">A implantação da primeira unidade contempla toda a configuração inicial: integração com o Alpha 7, feed de produtos por unidade, identidade visual, categorias, banners, regras de transferência e testes. Novas unidades incluídas posteriormente seguem o valor de R$ 500,00 cada.</p>
+    </div>
+
+    <div class="navy" style="margin-top:22px">
+      <span class="badge badge-line" style="margin-bottom:16px">Expansão para novas unidades</span>
+      <h3 style="font-size:clamp(18px,2.4vw,23px);margin-bottom:12px">Estrutura pensada para crescer com a rede.</h3>
+      <p style="color:rgba(255,255,255,.85);font-size:15px;max-width:80ch">
+        A implantação inicial contempla uma unidade. Cada nova loja incluída posteriormente tem acréscimo único de
+        R$ 500,00, mantendo a mesma mensalidade, franquia e estrutura já configurada.
+      </p>
+      <ul class="dots small" style="margin-top:14px;color:rgba(255,255,255,.85)">
+        <li>1 unidade: implantação de R$ 2.100,00.</li>
+        <li>Cada unidade adicional: R$ 500,00 de acréscimo único na implantação.</li>
+        <li>Mensalidade e franquia permanecem iguais, independentemente do número de lojas.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ==================== 08 · PREMISSAS E OBSERVAÇÕES ==================== -->
+  <section id="premissas" class="print-break">
+    <span class="kicker">08 · Premissas e observações</span>
+    <h2>Transparência sobre o escopo atual</h2>
+    <p class="lead">Pontos apresentados com clareza para que a decisão da Rede Mais Vale seja tomada com base no escopo real da solução.</p>
+
+    <div class="grid grid-2" style="margin-top:26px">
+      <div class="card">
+        <div class="icon icon-navy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></div>
+        <h3 style="font-size:16px">Pagamento online</h3>
+        <p class="small muted">A solução ainda não permite concluir o pagamento diretamente dentro do catálogo. A finalização do pagamento segue os fluxos atuais da operação.</p>
+      </div>
+      <div class="card">
+        <div class="icon icon-navy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v4"/><path d="M4 12v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/><path d="M2 12h20"/></svg></div>
+        <h3 style="font-size:16px">Promoções e fidelidade</h3>
+        <p class="small muted">A Rede Mais Vale não é filiada a programas como Febragras. Descontos e regras promocionais internas ainda possuem limitações de reconhecimento automático no catálogo.</p>
+      </div>
+      <div class="card">
+        <div class="icon icon-navy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3 style="font-size:16px">Histórico de pedidos</h3>
+        <p class="small muted">O histórico exibido no catálogo contempla apenas as compras feitas por esse canal, não as compras presenciais realizadas em loja física.</p>
+      </div>
+      <div class="card">
+        <div class="icon icon-navy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg></div>
+        <h3 style="font-size:16px">Qualidade do estoque</h3>
+        <p class="small muted">A sincronização reflete as informações disponíveis no Alpha 7. Regras de estoque mínimo reduzem divergências, mas não garantem que o estoque físico esteja sempre correto.</p>
+      </div>
+      <div class="card">
+        <div class="icon icon-navy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2l3 6-3 6 3 6"/><path d="M18 2l-3 6 3 6-3 6"/></svg></div>
+        <h3 style="font-size:16px">Promoções por quantidade</h3>
+        <p class="small muted">Ofertas como "três unidades por determinado preço" ainda não são plenamente reconhecidas automaticamente pelo catálogo.</p>
+      </div>
+      <div class="card">
+        <div class="icon icon-navy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <h3 style="font-size:16px">Múltiplos telefones por cadastro</h3>
+        <p class="small muted">A associação de vários números ao mesmo cadastro de cliente depende de validação técnica específica e não é apresentada como garantida.</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:20px">
+      <p class="small muted">
+        <strong style="color:var(--black)">Venda consultiva preservada:</strong> o catálogo é uma ferramenta de
+        apoio, não substitui o atendente. A transferência para humano é imediata quando o cliente envia receita,
+        áudio complexo ou solicita atendimento humano — preservando a orientação técnica em medicamentos e a
+        oportunidade de agregar produtos à venda.
+      </p>
+    </div>
+
+    <div class="callout callout-navy" style="margin-top:16px">
+      <p class="small muted">
+        <strong style="color:var(--black)">Custos variáveis:</strong> créditos de consumo do motor de IA (OpenAI,
+        Gemini ou outros) podem gerar cobrança variável pelo respectivo fornecedor, conforme utilização. A licença
+        do Alpha 7 continua sendo uma relação comercial separada com o fornecedor do ERP.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== 09 · IMPLANTAÇÃO PASSO A PASSO ==================== -->
+  <section id="implantacao" class="print-break">
+    <span class="kicker">09 · Implantação</span>
+    <h2>Implantação, passo a passo</h2>
+    <p class="lead">
+      Sete etapas, cada uma com a tela do painel onde ela acontece. Use isso para alinhar expectativa de prazo já
+      na assinatura.
+    </p>
+
+    <div class="implant-grid" style="margin-top:26px">
+      <div class="implant-step">
+        <div class="implant-step-head">
+          <div class="implant-step-num">1</div>
+          <div>
+            <div class="implant-step-title">Contrato e cadastro</div>
+          </div>
+        </div>
+        <div class="implant-step-desc">Organização, loja ou lojas, usuários e permissões. É o que habilita o filtro de escopo no painel.</div>
+        <span class="implant-panel">Minha loja</span>
+      </div>
+
+      <div class="implant-step">
+        <div class="implant-step-head">
+          <div class="implant-step-num">2</div>
+          <div>
+            <div class="implant-step-title">Integração com o ERP</div>
+          </div>
+        </div>
+        <div class="implant-step-desc">Conexão com o Alpha7: produtos, EAN, preços e estoque passam a sincronizar automaticamente, e o pedido volta para o sistema.</div>
+        <span class="implant-panel">Produtos</span>
+      </div>
+
+      <div class="implant-step">
+        <div class="implant-step-head">
+          <div class="implant-step-num">3</div>
+          <div>
+            <div class="implant-step-title">Identidade visual</div>
+          </div>
+        </div>
+        <div class="implant-step-desc">Logo, cores e nome da loja aplicados ao catálogo do cliente, para o cliente reconhecer a farmácia dele.</div>
+        <span class="implant-panel">Guia visual</span>
+      </div>
+
+      <div class="implant-step">
+        <div class="implant-step-head">
+          <div class="implant-step-num">4</div>
+          <div>
+            <div class="implant-step-title">Vitrine e categorias</div>
+          </div>
+        </div>
+        <div class="implant-step-desc">Banners de campanha, bloco de recomendados e organização das categorias. É o que transforma uma busca em três itens no carrinho.</div>
+        <span class="implant-panel">Vitrine</span>
+      </div>
+
+      <div class="implant-step">
+        <div class="implant-step-head">
+          <div class="implant-step-num">5</div>
+          <div>
+            <div class="implant-step-title">Canal WhatsApp</div>
+          </div>
+        </div>
+        <div class="implant-step-desc">Número oficial na Meta e ativação da IA do catálogo. Sem isso o catálogo existe, mas ninguém chega nele.</div>
+        <span class="implant-panel">Atendimentos</span>
+      </div>
+
+      <div class="implant-step">
+        <div class="implant-step-head">
+          <div class="implant-step-num">6</div>
+          <div>
+            <div class="implant-step-title">Testes de busca</div>
+          </div>
+        </div>
+        <div class="implant-step-desc">Rodada de perguntas reais para calibrar o agente e o catálogo. Revise o que foi procurado e não teve resultado — são vendas perdidas mapeadas.</div>
+        <span class="implant-panel">Buscas</span>
+      </div>
+
+      <div class="implant-step">
+        <div class="implant-step-head">
+          <div class="implant-step-num">7</div>
+          <div>
+            <div class="implant-step-title">Go live e rotina diária</div>
+          </div>
+        </div>
+        <div class="implant-step-desc">Cinco minutos por dia: Pendências → Atendimentos → Visão geral → buscas sem resultado → produtos nos carrinhos.</div>
+        <span class="implant-panel">Início</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 10 · ENCERRAMENTO ==================== -->
+  <section id="encerramento">
+    <div class="navy closing">
+      <svg class="logo logo-light" role="img" aria-label="Grupo Único Contato"><use href="#uc-logo"/></svg>
+      <p class="phrase">Tecnologia para ampliar as vendas digitais, preservando o atendimento que faz a Rede Mais Vale ser Rede Mais Vale.</p>
+      <p class="quote">"O cliente escolhe o caminho. A tecnologia organiza. O atendente orienta. A rede decide."</p>
+      <div class="sig">
+        <div class="brand">Único Contato</div>
+        <div class="line">Catálogo Digital | Rede Mais Vale</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="doc-foot">
+    <span>Único Contato · Documento confidencial preparado para a Rede Mais Vale.</span>
+    <span>Valores, escopos e condições sujeitos a formalização contratual.</span>
+  </footer>
+
+</div>
+</body>
+</html>
